@@ -1,0 +1,84 @@
+alpine316:/home/vagrant/phpinstall# /usr/bin/mysql_install_db --user=mysql
+Installing MariaDB/MySQL system tables in './data' ...
+OK
+
+To start mariadbd at boot time you have to copy
+support-files/mariadb.service to the right place for your system
+
+
+Two all-privilege accounts were created.
+One is root@localhost, it has no password, but you need to
+be system 'root' user to connect. Use, for example, sudo mysql
+The second is mysql@localhost, it has no password either, but
+you need to be the system 'mysql' user to connect.
+After connecting you can set the password, if you would need to be
+able to connect as any of these users with a password and without sudo
+
+See the MariaDB Knowledgebase at https://mariadb.com/kb
+
+You can start the MariaDB daemon with:
+cd '/usr' ; /usr/bin/mariadb-safe --datadir='./data'
+
+You can test the MariaDB daemon with mysql-test-run.pl
+cd '/usr/mysql-test' ; perl mariadb-test-run.pl
+
+Please report any problems at https://mariadb.org/jira
+
+The latest information about MariaDB is available at https://mariadb.org/.
+
+Consider joining MariaDB's strong and vibrant community:
+https://mariadb.org/get-involved/
+
+alpine316:/home/vagrant/phpinstall# /etc/init.d/mysql start
+bash: /etc/init.d/mysql: No such file or directory
+alpine316:/home/vagrant/phpinstall# /etc/init.d/mariadb start
+ * Caching service dependencies ...                                                                                                                                                                            [ ok ]
+ * Datadir '/var/lib/mysql' is empty or invalid.
+ * Run '/etc/init.d/mariadb setup' to create new database.
+ * ERROR: mariadb failed to start
+alpine316:/home/vagrant/phpinstall# /etc/init.d/mariadb setup
+ * Creating a new MySQL database ...
+Installing MariaDB/MySQL system tables in '/var/lib/mysql' ...
+OK
+
+To start mariadbd at boot time you have to copy
+support-files/mariadb.service to the right place for your system
+
+
+Two all-privilege accounts were created.
+One is root@localhost, it has no password, but you need to
+be system 'root' user to connect. Use, for example, sudo mysql
+The second is mysql@localhost, it has no password either, but
+you need to be the system 'mysql' user to connect.
+After connecting you can set the password, if you would need to be
+able to connect as any of these users with a password and without sudo
+
+See the MariaDB Knowledgebase at https://mariadb.com/kb
+
+You can start the MariaDB daemon with:
+cd '/usr' ; /usr/bin/mariadb-safe --datadir='/var/lib/mysql'
+
+You can test the MariaDB daemon with mysql-test-run.pl
+cd '/usr/mysql-test' ; perl mariadb-test-run.pl
+
+Please report any problems at https://mariadb.org/jira
+
+The latest information about MariaDB is available at https://mariadb.org/.
+
+Consider joining MariaDB's strong and vibrant community:
+https://mariadb.org/get-involved/
+                                                                                                                                                                                                               [ ok ]
+alpine316:/home/vagrant/phpinstall# cd /usr/
+alpine316:/usr# /usr/bin/mariadb-safe --datadir='/var/lib/mysql'
+bash: /usr/bin/mariadb-safe: No such file or directory
+alpine316:/usr# /etc/init.d/mariadb setup
+ * Creating a new MySQL database ...
+mysql.user table already exists!
+Run mysql_upgrade, not mysql_install_db                                                                                                                                                                        [ ok ]
+alpine316:/usr# mysql_upgrade
+bash: mysql_upgrade: command not found
+alpine316:/usr# apk add mysql
+OK: 666 MiB in 224 packages
+alpine316:/usr# 
+alpine316:/usr# cd
+alpine316:~# 
